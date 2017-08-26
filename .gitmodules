@@ -1,0 +1,6 @@
+[submodule "client/src/app/core/models/shared"]
+	path = client/src/app/core/models/shared
+	url = https://github.com/NigelAnderton/HitchedJukeBox.Models.Typescript.git
+[submodule "server/src/models/shared"]
+	path = server/src/models/shared
+	url = https://github.com/NigelAnderton/HitchedJukeBox.Models.Typescript.git

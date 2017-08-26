@@ -1,0 +1,12 @@
+<img class="img-thumbnail pull-right" src="{{item.ImageUrl}}" style="height: 50px; width: 50px; margin-top: 2px;" />
+<div style="margin: 0; width: 100%;"><small><strong>{{item.Name}}</strong></small></div>
+<div style="margin: 0; width: 100%;"><small>{{item.ArtistName}}</small></div>
+<div style="margin: 0; padding: 5px; width: 100%; clear: both;">
+    <span class="badge badge-pill badge-primary">{{item.GetVoteCount()}}</span>
+    <span title="Added by"><small><i class="fa fa-plus-square-o"></i>&nbsp;<em>{{item.UserName}}</em></small></span>
+    <span class="pull-right">
+        <i (click)="upVote(i)" *ngIf="!item.VotedFor(credentials.username)" class="fa fa-thumbs-up"></i>
+        <i (click)="downVote(i)" *ngIf="item.GetVoteCount() > 1 && item.VotedFor(credentials.username)" class="fa fa-thumbs-down"></i>
+        <i (click)="downVote(i)" *ngIf="item.GetVoteCount() <= 1 && item.VotedFor(credentials.username)" class="fa fa-minus-square-o"></i>
+    </span>
+</div>

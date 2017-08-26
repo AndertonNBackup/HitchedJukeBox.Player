@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Now Playing...</h4>
+    </div>
+    <div class="card-body" style="padding: 5px;">
+        <p class="card-text" *ngIf="PlayList.length <= 0">Songs added to the playlist will appear here...</p>
+        <p class="card-text" *ngIf="PlayList.length > 0">Next up...</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngIf="PlayList.length <= 0">Nothing yet...</li>
+        <li class="list-group-item" style="display: block;" *ngFor="let item of PlayList; let i = index;" id="{{item.Id}}">
+            <hjbv-now-playing-item [item]="item" [index]="index"></hjbv-now-playing-item>
+        </li>
+    </ul>
+    <div class="card-body" style="padding: 5px;">
+        <a href="javascript: void(0);" (click)="clear()" class="card-link pull-right" *ngIf="PlayList.length > 0">Clear</a>
+    </div>
+</div>

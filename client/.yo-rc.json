@@ -1,0 +1,10 @@
+{
+  "generator-ngx-rocket": {
+    "version": "1.3.3",
+    "props": {
+      "appName": "Hiteched Jukebox Player",
+      "auth": true,
+      "projectName": "hitched-jukebox-player"
+    }
+  }
+}

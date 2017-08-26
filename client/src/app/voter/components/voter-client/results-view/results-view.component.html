@@ -1,0 +1,17 @@
+<div id="hjbv_search_results" class="container" *ngIf="searchResults">
+    <div class="col-md-12" *ngIf="searchResults.GetType() == 0">
+        <div class="list-group" *ngFor="let track of searchResults.GetItems()">
+            <app-track [track]="track"></app-track>
+        </div>
+    </div>
+    <div class="col-md-12" *ngIf="searchResults.GetType() == 1">
+        <div class="list-group" *ngFor="let album of searchResults.GetItems()">
+            <app-album [album]="album"></app-album>
+        </div>
+    </div>
+    <div class="col-md-12" *ngIf="searchResults.GetType() == 2">
+        <div class="list-group" *ngFor="let artist of searchResults.GetItems()">
+            <app-artist [artist]="artist"></app-artist>
+        </div>
+    </div>
+</div>

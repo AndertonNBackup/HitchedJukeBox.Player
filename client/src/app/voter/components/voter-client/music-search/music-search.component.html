@@ -1,0 +1,13 @@
+<div id="hjbv_search_control" class="row">
+    <div class="col-md-12">
+        <div class="input-group">
+            <select [(ngModel)]="searchType" class="col-md-4">
+                <option *ngFor="let s of searchTypes" [ngValue]="s">{{s.name}}</option>
+            </select>
+            <input [(ngModel)]="message" type="text" class="form-control" placeholder="Search {{searchType.name}}'s..." aria-label="Product name">
+            <span class="input-group-btn">
+                <button (click)="search()" type="button" class="btn btn-primary">Search</button>
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "noEmitOnError": true,
+        "moduleResolution": "node",
+        "diagnostics": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "traceResolution": false,
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    // "files": [
+    //     "./src/*.ts",
+    //     "./src/services/*.ts"
+    // ],
+    "include": [
+        "./src/**/*"
+    ]
+}
