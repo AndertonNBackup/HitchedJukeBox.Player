@@ -7,7 +7,7 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class SocketService {
     private url: string = process.env.API_URL || 'ws://0.0.0.0:';
-    private port: number = parseInt(process.env.API_PORT) || 8080;
+    private port: number = parseInt(process.env.API_PORT) || 8090;
     private socket: SocketIOClient.Socket;
     private authentication: AuthenticationService;
 

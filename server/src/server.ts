@@ -59,7 +59,7 @@ class Server {
     private sockets(): void {
         try {
             this.io = socketIo(this.server);
-            // this.io.adapter(redis({ host: this.redisHost, port: 6379 }));
+            this.io.adapter(redis({ host: this.redisHost, port: 6379 }));
         }
         catch(e)
         {

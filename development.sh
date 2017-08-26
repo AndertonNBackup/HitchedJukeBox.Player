@@ -9,7 +9,7 @@ docker rm ${CONTAINER_NAME}
 docker run \
     -d \
     -p 4300:4300 \
-    -p 8080:8080 \
+    -p 8090:8090 \
     --name ${CONTAINER_NAME} \
     -e "NODE_ENV=development" \
     -v `pwd`/client:/usr/code/client \
