@@ -8,7 +8,7 @@ import { SpotifySearchResponse } from '../models/shared/spotify/spotify-search-r
 @Injectable()
 export class SpotifyService {
 
-    public static appPrefix: string = "HJBV";
+    public static appPrefix: string = "HJB";
     public static servicePrefix: string = 'Spotify';
 
     constructor(private socket: SocketService) {

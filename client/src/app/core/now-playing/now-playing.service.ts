@@ -8,7 +8,7 @@ import { NowPlayingResponse } from '../models/shared/now-playing/now-playing-res
 @Injectable()
 export class NowPlayingService {
 
-    public static appPrefix: string = "HJBV";
+    public static appPrefix: string = "HJB";
     public static servicePrefix: string = 'NowPlaying';
 
     constructor(private socket: SocketService) {

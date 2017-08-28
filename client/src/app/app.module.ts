@@ -17,6 +17,7 @@ import { LoginModule } from './login/login.module';
 import { SocketService } from './core/socket/socket.service';
 import { SpotifyService } from './core/spotify/spotify.service';
 import { NowPlayingService } from './core/now-playing/now-playing.service';
+import { QueueManagerService } from './core/queue-manager/queue-manager.service';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { NowPlayingService } from './core/now-playing/now-playing.service';
   providers: [
     SocketService,
     SpotifyService,
-    NowPlayingService
+    NowPlayingService,
+    QueueManagerService
   ],
   bootstrap: [AppComponent]
 })

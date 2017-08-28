@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col align-self-center">
+            <p class="mb-1">&nbsp;</p>
+            <button (click)="initiate()" type="button" class="btn btn-primary">Initiate Queue</button>
+            <div style="padding: 20px;">&nbsp;</div>
+        </div>
+    </div>
+    <div class="row justify-content-center" *ngIf="itemResult && itemResult.item && itemResult.item.Type && itemResult.item.Type != '-1'">
+        <div class="col-6 img-thumbnail">
+            <h1 class="mx-auto d-block text-center"><span>{{itemResult.item.Name}}</span></h1>
+            <h5 class="mx-auto d-block text-center"><em><span>{{itemResult.item.ArtistName}}</span></em></h5>
+            <div>
+                <img src="{{itemResult.item.ImageUrl}}" class="mx-auto d-block img-thumbnail" height="300" width="300" />
+                <p class="my-3"></p>
+                <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" attr.aria-valuenow="{{timerCurrent}}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': timerCurrent + '%', 'height.px': 5}"></div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p>Added By: {{itemResult.item.UserName}}</p>
+            <!-- <div class="lead invisible">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </div> -->
+        </div>
+    </div>
+</div>

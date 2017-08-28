@@ -8,7 +8,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 
-import { VoterClientModule } from '../voter/components/voter-client/voter-client.module';
+import { PlayerClientModule } from '../voter/components/player-client/player-client.module';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { VoterClientModule } from '../voter/components/voter-client/voter-client
     CoreModule,
     SharedModule,
     HomeRoutingModule,
-    VoterClientModule
+    PlayerClientModule
   ],
   declarations: [
     HomeComponent
