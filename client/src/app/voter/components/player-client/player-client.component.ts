@@ -10,6 +10,8 @@ import { QueueManagerService } from '../../../core/queue-manager/queue-manager.s
 import { QueueManagerRequest } from '../../../core/models/shared/queue-manager/queue-manager-request';
 import { QueueManagerResponse } from '../../../core/models/shared/queue-manager/queue-manager-response';
 
+import { NowPlayingItem } from '../../../core/models/shared/now-playing/now-playing-item';
+
 @Component({
   selector: 'hjbv-player',
   templateUrl: './player-client.component.html',
@@ -29,16 +31,18 @@ export class PlayerClientComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+    let npItem: NowPlayingItem;
     let responseHook: string = QueueManagerResponse.fetchQueueManagerResponseHook(QueueManagerService.appPrefix, QueueManagerService.servicePrefix);
     this.connection = this.queueManager.listen(responseHook).subscribe(itemResult => {
       console.log(itemResult);
       this.itemResult = QueueManagerResponse.FromObject(itemResult);
       clearTimeout(this.timerHandle);
       let ProgressCount: number = 0;
+      npItem = NowPlayingItem.FromObject(this.itemResult.item);
       this.timerHandle = setInterval(() => {
-        this.timerCurrent = ((ProgressCount + 1) / this.timerMax) * 100;
+        this.timerCurrent = ((ProgressCount + 1) / npItem.GetPlaytime()) * 100;
         ProgressCount++;
-        if(ProgressCount > 10) {
+        if((this.timerCurrent >= 100) || ProgressCount >=  npItem.GetPlaytime()) {
           clearTimeout(this.timerHandle);
         }
       }, 1000);
