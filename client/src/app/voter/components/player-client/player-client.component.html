@@ -1,8 +1,25 @@
+<style>
+      /** Progress **/
+  .progress {
+    border: 0.15em solid #337ab7;
+    height: 1em;
+  }
+  
+  .progress__bar {
+    background-color: #337ab7;
+    border: 0.1em solid transparent;
+    height: 0.75em;
+  }
+</style>
 <div class="container">
     <div class="row">
         <div class="col align-self-center">
             <p class="mb-1">&nbsp;</p>
             <button (click)="initiate()" type="button" class="btn btn-primary">Initiate Queue</button>
+            <button (click)="playerLogin()" type="button" class="btn btn-primary">Login</button>
+            <select id="selectedDevice" *ngIf="devices && devices.length >= 1" (change)="setDevice($event.target.value)" value="{{getActiveDeviceID()}}">
+                <option *ngFor="let device of devices" value="{{device.id}}">{{device.name}}</option>
+            </select>
             <div style="padding: 20px;">&nbsp;</div>
         </div>
     </div>
@@ -23,5 +40,29 @@
                 <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
             </div> -->
         </div>
+    </div>
+    <div *ngIf="data">
+        <div class="main-wrapper">
+            <img class="now-playing__img" style="max-height: 300px; max-width: 300px;" src="{{data.item.album.images[0].url}}">
+            <div class="now-playing__side">
+              <div class="now-playing__name">{{data.item.name}}</div>
+              <div class="now-playing__artist">{{data.item.artists[0].name}}</div>
+              <div class="now-playing__status">{{data.is_playing ? 'Playing' : 'Paused'}}</div>
+              <div class="progress" style="max-width: 300px;">
+                <div class="progress__bar" [ngStyle]="{'width' : (data.progress_ms * 100 / data.item.duration_ms) + '%'}"></div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="background" [ngStyle]="{'background.image' : 'url(' + data.item.album.images[0].url + ')'}" style="background-image:url({{data.item.album.images[0].url}})"></div> -->
+        <div>
+            &nbsp;
+        </div>
+    </div>
+    <button (click)="playerLogout()" type="button" class="btn btn-primary">Logout</button>
+    <div *ngIf="data" style="margin-top: 5px">
+        <button (click)="playerBack()" type="button" class="btn btn-primary"><<</button>
+        <button *ngIf="data && data.is_playing" (click)="playerPause()" type="button" class="btn btn-primary">||</button>
+        <button *ngIf="data && !data.is_playing" (click)="playerPlay()" type="button" class="btn btn-primary">></button>
+        <button (click)="playerForward()" type="button" class="btn btn-primary">>></button>
     </div>
 </div>
