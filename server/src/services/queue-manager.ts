@@ -85,7 +85,6 @@ export class QueueManagerService {
 
     private trigger_player(queueManagerRequest: QueueManagerRequest): void
     {
-        console.log(queueManagerRequest);
         this.rabbit.sendMessage(RabbitMQService.RS_PLAYER_Q, queueManagerRequest);
     }
 
