@@ -73,7 +73,7 @@ export class PlayerClientComponent implements OnInit, OnDestroy {
         if (!this.fetchingTrack) {
           this.fetchingTrack = true;
           // Request new song from Server
-          //this.requestTrack();
+          this.requestTrack();
         }
         console.log("Song Finished!");
       } else {
